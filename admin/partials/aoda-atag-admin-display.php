@@ -34,6 +34,11 @@
         do_settings_sections($this->plugin_name);
     ?>
 
+    <!-- hidden fields -->
+    <fieldset>
+        <input type="hidden" id="siteUrl" name="<?php echo $this->plugin_name;?>[siteUrl]" value="<?php echo parse_url(get_home_url(), PHP_URL_HOST); ?>" />
+    </fieldset>
+
     <!-- switch -->
     <fieldset>
         <legend class="screen-reader-text">
@@ -57,9 +62,12 @@
         <p>HTML element to append to anchor content</p>
         <legend class="screen-reader-text"><span><?php _e('HTML element', $this->plugin_name); ?></span></legend>
         <textarea class="regular-text" id="<?php echo $this->plugin_name; ?>-element" name="<?php echo $this->plugin_name; ?>[element]" ><?php if(!empty($element)) echo $element; ?></textarea>
+        <h3>Example</h3><input id="refreshExampleButton" type="button" class="button" value="<?php _e( 'Refresh Example', $this->plugin_name); ?>" />
+        <p id="exampleText">This is the best <a href="https://www.techmuzz.com" target="_blank">website</a> in this world.</p>
+        <p id="outputText">This is the best <a href="https://www.techmuzz.com">website</a> in this world.</p>
     </fieldset>
 
-    <?php submit_button('Save all changes', 'primary','submit', TRUE); ?>
+    <?php submit_button('Save changes', 'primary','submit', TRUE); ?>
 
     </form>
 
