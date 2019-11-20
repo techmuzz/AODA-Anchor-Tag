@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       AODA Anchor Tag
  * Plugin URI:        https://github.com/techmuzz/AODA-Anchor-Tag
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       This plugin will append extra html element or content to anchor tags having external links in the post articles.
  * Version:           1.0.0
  * Author:            TechMuzz
  * Author URI:        https://www.techmuzz.com
