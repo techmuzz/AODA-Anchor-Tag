@@ -2,6 +2,21 @@
 	'use strict';
 
 	$(function(){
+		var domainsPlaceholder = 'www.techmuzz.com \nwww.yourdomain.com';
+		$('#aoda-atag-domains').attr('value', domainsPlaceholder);
+
+		$('#aoda-atag-domains').focus(function(){
+			if($(this).val() === domainsPlaceholder){
+				$(this).attr('value', '');
+			}
+		});
+
+		$('#aoda-atag-domains').blur(function(){
+			if($(this).val() ===''){
+				$(this).attr('value', domainsPlaceholder);
+			}    
+		});
+
 		$('#outputText').html(applyRegex());
 
 		$('#refreshExampleButton').on('click', function(e){

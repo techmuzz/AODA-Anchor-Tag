@@ -52,7 +52,7 @@
 
     <!-- domains to exclude -->
     <fieldset>
-        <p>Give comma seperated domains to exclude</p>
+        <p>Give domains to exclude as seperate line. Current site's domain is already included (<?php echo parse_url(get_home_url(), PHP_URL_HOST); ?>)</p>
         <legend class="screen-reader-text"><span><?php _e('Domains to exclude', $this->plugin_name); ?></span></legend>
         <textarea class="regular-text" id="<?php echo $this->plugin_name; ?>-domains" name="<?php echo $this->plugin_name; ?>[domains]" ><?php if(!empty($domains)) echo $domains; ?></textarea>
     </fieldset>
@@ -61,7 +61,7 @@
     <fieldset>
         <p>HTML element to append to anchor content</p>
         <legend class="screen-reader-text"><span><?php _e('HTML element', $this->plugin_name); ?></span></legend>
-        <textarea class="regular-text" id="<?php echo $this->plugin_name; ?>-element" name="<?php echo $this->plugin_name; ?>[element]" ><?php if(!empty($element)) echo $element; ?></textarea>
+        <textarea class="regular-text" id="<?php echo $this->plugin_name; ?>-element" name="<?php echo $this->plugin_name; ?>[element]" placeholder='<img src="https://techmuzz.com/favicon.ico" />' ><?php if(!empty($element)) echo $element; ?></textarea>
         <h3>Example</h3><input id="refreshExampleButton" type="button" class="button" value="<?php _e( 'Refresh Example', $this->plugin_name); ?>" />
         <p id="exampleText">This is the best <a href="https://www.google.com" target="_blank">website</a> in this world.</p>
         <p id="outputText">This is the best <a href="https://www.google.com">website</a> in this world.</p>
