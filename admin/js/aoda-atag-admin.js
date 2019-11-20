@@ -16,10 +16,16 @@
 
 	function applyRegex() {
 		var siteUrl = $('#siteUrl').val();
-		var regex = new RegExp(`<a(.+?(?=href))href="((http|https):\\/\\/(?!${siteUrl})[\\w\\.\\/\\-=?#]+)"(.*?)>(.*?)<\\/a>`, 'gi');
 
+		var domains = $('#aoda-atag-domains').val().split(/\n/);
+		domains.map(domain => domain.trim());
+		domains = domains.filter(domain => domain.length > 0);
+		domains.push(siteUrl);
+		domains = domains.join("|");
+
+		var regex = new RegExp(`<a(.+?(?=href))href="((http|https):\\/\\/(?!(${domains}))[\\w\\.\\/\\-=?#]+)"(.*?)>(.*?)<\\/a>`, 'gi');
 		var appendElement = $('#aoda-atag-element').val();
-		var replaceAnchor = `<a$1href='$2'$4>$5 ${appendElement}</a>`;
+		var replaceAnchor = `<a$1href='$2'$5>$6 ${appendElement}</a>`;
 
 		return $('#exampleText').html().replace(regex, replaceAnchor);
 	}
