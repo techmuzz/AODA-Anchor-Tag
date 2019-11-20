@@ -145,7 +145,23 @@ class Aoda_Atag_Admin {
 	 */
 
 	public function display_plugin_setup_page() {
-		include_once( 'partials/wp-cbf-admin-display.php' );
+		include_once( 'partials/aoda-atag-admin-display.php' );
 	}
+
+	public function validate($input) {
+		// All checkboxes inputs        
+		$valid = array();
+	
+		//Cleanup
+		$valid['switch'] = (isset($input['switch']) && !empty($input['switch'])) ? 1 : 0;
+		$valid['domains'] = esc_textarea($input['domains']);
+		$valid['element'] = esc_textarea($input['element']);
+	
+		return $valid;
+	 }
+
+	 public function options_update() {
+		register_setting($this->plugin_name, $this->plugin_name, array($this, 'validate'));
+	 }
 
 }
