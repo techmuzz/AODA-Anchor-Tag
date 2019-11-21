@@ -100,4 +100,27 @@ class Aoda_Atag_Public {
 
 	}
 
+
+	public function aoda_atag_the_content( $content ) {
+		$options = get_option($this->plugin_name);
+		$switch = $options['switch'];
+		$domains = explode("\n", $options['domains']);
+		$domains = array_map(function($domain) {
+			return trim($domain);
+		}, $domains);
+		$domains = array_filter($domains, function($domain) {
+			return strlen($domain) > 0;
+		});
+		$domains[] = parse_url(get_home_url(), PHP_URL_HOST);
+		$domains = implode('|', $domains);
+
+		$element = html_entity_decode($options['element']);
+		if($switch) {
+			$pattern = "/<a(.+?(?=href))href=\"((http|https):\/\/(?!({$domains}))[\w\.\/\-=?#]+)\"(.*?)>(.*?)<\/a>/i";
+			$replacement = "<a$1href=\"$2\"$5>$6{$element}</a>";
+			$content = preg_replace($pattern, $replacement, $content);
+		}
+		return $content;
+	}
+
 }
