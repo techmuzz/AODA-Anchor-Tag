@@ -27,6 +27,7 @@
         $switch = $options['switch'];
         $domains = $options['domains'];
         $element = $options['element'];
+        $target = $options['target'];
     ?>
 
     <?php
@@ -48,6 +49,20 @@
             <input type="checkbox" id="<?php echo $this->plugin_name; ?>-switch" name="<?php echo $this->plugin_name; ?>[switch]" value="1" <?php checked($switch, 1); ?> />
             <span><?php esc_attr_e('Switch to turn on or off', $this->plugin_name); ?></span>
         </label>
+    </fieldset>
+
+    <!-- override anchor tag target attribute -->
+    <fieldset>
+        <p>Select target for anchor tag target attribute to override</p>
+        <legend class="screen-reader-text"><span><?php _e('Override Target attribute', $this->plugin_name); ?></span></legend>
+        <select class="regular-text" id="<?php echo $this->plugin_name; ?>-target" name="<?php echo $this->plugin_name; ?>[target]" >
+            <option value="-1" <? echo (($target=="-1") ? "selected" : ""); ?>>Select Target</option>
+            <option value="_blank" <? echo ($target=="_blank" ? "selected" : ""); ?>>_blank</option>
+            <option value="_self" <? echo ($target=="_self" ? "selected" : ""); ?>>_self</option>
+            <option value="_parent" <? echo ($target=="_parent" ? "selected" : ""); ?>>_parent</option>
+            <option value="_top" <? echo ($target=="_top" ? "selected" : ""); ?>>_top</option>
+            <option value="framename" <? echo ($target=="framename" ? "selected" : ""); ?>>framename</option>
+        </select>
     </fieldset>
 
     <!-- domains to exclude -->

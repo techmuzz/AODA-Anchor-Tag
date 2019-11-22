@@ -100,25 +100,45 @@ class Aoda_Atag_Public {
 
 	}
 
+	public static function getHost($address) {
+		$parseUrl = parse_url(trim($address));
+		return str_ireplace('www.', '', trim($parseUrl['host'] ? $parseUrl['host'] : array_shift(explode('/', $parseUrl['path'], 2))));
+	}
+
+	public static function appendHTML(DOMNode $parent, $source) {
+		$tmpDoc = new DOMDocument();
+		$tmpDoc->loadHTML($source);
+		foreach ($tmpDoc->getElementsByTagName('body')->item(0)->childNodes as $node) {
+			$node = $parent->ownerDocument->importNode($node, true);
+			$parent->appendChild($node);
+		}
+		return $parent;
+	}
 
 	public function aoda_atag_the_content( $content ) {
 		$options = get_option($this->plugin_name);
-		$switch = $options['switch'];
-		$domains = explode("\n", $options['domains']);
-		$domains = array_map(function($domain) {
-			return trim($domain);
-		}, $domains);
-		$domains = array_filter($domains, function($domain) {
-			return strlen($domain) > 0;
-		});
-		$domains[] = parse_url(get_home_url(), PHP_URL_HOST);
-		$domains = implode('|', $domains);
 
-		$element = html_entity_decode($options['element']);
-		if($switch) {
-			$pattern = "/<a(.+?(?=href))href=\"((http|https):\/\/(?!({$domains}))[\w\.\/\-=?#]+)\"(.*?)>(.*?)<\/a>/i";
-			$replacement = "<a$1href=\"$2\"$5>$6{$element}</a>";
-			$content = preg_replace($pattern, $replacement, $content);
+		if($options['switch']) {
+			$domains = explode("\n", $options['domains']);
+			$domains = array_filter($domains); //will filter empty values
+			$domains = array_map("self::getHost", $domains);
+			$domains[] = self::getHost(get_home_url());
+
+			if(!empty($domains)) {
+				$element = html_entity_decode($options['element']);
+				$target = $options['target'];
+				$dom = new DOMDocument;
+				@$dom->loadHTML($content);
+				
+				foreach ($dom->getElementsByTagName('a') as $anchorTag){
+					$host = self::getHost($anchorTag->getAttribute('href'));
+					if(!in_array($host, $domains)) {
+						if ($target != "-1") $anchorTag->setAttribute('target', $target);
+						self::appendHTML($anchorTag, $element);
+					}
+				}
+				$content = $dom->saveHtml();
+			}
 		}
 		return $content;
 	}
