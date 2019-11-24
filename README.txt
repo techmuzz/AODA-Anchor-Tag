@@ -7,6 +7,7 @@ Tested up to: 3.4
 Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Requires PHP: 5.5
 
 This plugin will update hyperlinks in articles are per options set in the plugin settings page.
 
@@ -46,4 +47,9 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 == Changelog ==
 
 = 1.0 =
-* All basic featuresdeveloped
+* All basic features developed
+
+== Upgrade Notice ==
+
+= 1.0 =
+* All basic features developed
