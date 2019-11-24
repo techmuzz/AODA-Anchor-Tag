@@ -22,8 +22,8 @@
 				$("#submit").click();
 			},
 			labels: {
-				next : 'Next',
-				finish: 'Save',
+				next : 'Preview',
+				finish: 'Save Changes',
 				previous: "Back"
 			},
 		});

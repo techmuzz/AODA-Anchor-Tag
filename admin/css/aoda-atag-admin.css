@@ -511,10 +511,10 @@ body {
     -o-border-radius: 50%;
     -ms-border-radius: 50%;
     -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
+    -webkit-border-radius: 10px;
     display: inline-flex;
     height: 50px;
-    width: 50px;
+    width: auto;
     justify-content: center;
     -o-justify-content: center;
     -ms-justify-content: center;

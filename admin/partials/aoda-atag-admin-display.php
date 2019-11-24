@@ -35,28 +35,6 @@
                 <div id="form-total">
                     <!-- SECTION 1 -->
                     <h2>
-                        <span class="step-text">Activate Plugin</span>
-                    </h2>
-                    <section>
-                        <div class="inner">
-                            <div class="wizard-header">
-                                <h3 class="heading">Activate Plugin</h3>
-                                <p>Turn on the plugin to append custom html/text to anchor tags having external links.</p>
-                            </div>
-                            <div class="wizard-header">
-                                <div class="form-holder">
-                                    <fieldset>
-                                        <label class="switch">
-                                            <input type="checkbox" id="<?php echo $this->plugin_name; ?>-switch" name="<?php echo $this->plugin_name; ?>[switch]" value="1" <?php checked($switch, 1); ?> />
-                                            <span class="slider round"></span>
-                                        </label>
-                                    </fieldset>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <!-- SECTION 2 -->
-                    <h2>
                         <span class="step-text">Configure Anchor tag</span>
                     </h2>
                     <section>
@@ -69,7 +47,7 @@
                                 <div class="form-holder form-holder-2">
                                     <fieldset>
                                         <legend>Target</legend>
-                                        <select class="regular-text" id="<?php echo $this->plugin_name; ?>-target" name="<?php echo $this->plugin_name; ?>[target]" >
+                                        <select id="<?php echo $this->plugin_name; ?>-target" name="<?php echo $this->plugin_name; ?>[target]" >
                                             <option value="-1" <? echo (($target=="-1") ? "selected" : ""); ?>>Select Target</option>
                                             <option value="_blank" <? echo ($target=="_blank" ? "selected" : ""); ?>>_blank</option>
                                             <option value="_self" <? echo ($target=="_self" ? "selected" : ""); ?>>_self</option>
@@ -84,7 +62,8 @@
                                 <div class="form-holder form-holder-2">
                                     <fieldset>
                                         <legend>Exclude Domains</legend>
-                                        <textarea class="regular-text" id="<?php echo $this->plugin_name; ?>-domains" name="<?php echo $this->plugin_name; ?>[domains]" placeholder="Give domains to exclude as seperate line. Current site's domain is already included (<?php echo parse_url(get_home_url(), PHP_URL_HOST); ?>)"><?php if(!empty($domains)) echo $domains; ?></textarea>
+                                        <label>Note: All internal links are excluded by default</label>
+                                        <textarea id="<?php echo $this->plugin_name; ?>-domains" name="<?php echo $this->plugin_name; ?>[domains]" placeholder="Give domains to exclude as seperate line. Current site's domain is already included (<?php echo parse_url(get_home_url(), PHP_URL_HOST); ?>)"><?php if(!empty($domains)) echo $domains; ?></textarea>
                                     </fieldset>
                                 </div>
                             </div>
@@ -92,15 +71,15 @@
                                 <div class="form-holder form-holder-2">
                                     <fieldset>
                                         <legend>HTML to append</legend>
-                                        <textarea class="regular-text" id="<?php echo $this->plugin_name; ?>-element" name="<?php echo $this->plugin_name; ?>[element]" placeholder='<img src="https://techmuzz.com/favicon.ico" />' ><?php if(!empty($element)) echo $element; ?></textarea>
+                                        <textarea id="<?php echo $this->plugin_name; ?>-element" name="<?php echo $this->plugin_name; ?>[element]" placeholder='<img src="https://techmuzz.com/favicon.ico" />' ><?php if(!empty($element)) echo $element; ?></textarea>
                                     </fieldset>
                                 </div>
                             </div>
                         </div>
                     </section>
-                    <!-- SECTION 3 -->
+                    <!-- SECTION 2 -->
                     <h2>
-                        <span class="step-text">Preview</span>
+                        <span class="step-text">Preview & Apply</span>
                     </h2>
                     <section>
                         <div class="inner">
@@ -121,6 +100,17 @@
                                     <fieldset>
                                         <legend>Output Text</legend>
                                         <p id="outputText">This is the best <a href="https://www.google.com" target="_blank">website</a> in this world.</p>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-holder">
+                                    <fieldset>
+                                        <legend>Apply Changes</legend>
+                                        <label class="switch">
+                                            <input type="checkbox" id="<?php echo $this->plugin_name; ?>-switch" name="<?php echo $this->plugin_name; ?>[switch]" value="1" <?php checked($switch, 1); ?> />
+                                            <span class="slider round"></span>
+                                        </label>
                                     </fieldset>
                                 </div>
                             </div>
