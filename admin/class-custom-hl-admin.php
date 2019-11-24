@@ -18,7 +18,7 @@
  *
  * @package    Custom_HL
  * @subpackage Custom_HL/admin
- * @author     TechMuzz <techmuzz@gmail.com>
+ * @author     TechMuzz <info@techmuzz.com>
  */
 class Custom_HL_Admin {
 

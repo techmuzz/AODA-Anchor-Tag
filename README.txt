@@ -1,5 +1,5 @@
 === Plugin Name ===
-Contributors: parthkheni
+Contributors: techmuzz
 Donate link: https://www.techmuzz.com
 Tags: anchor, AODA
 Requires at least: 3.0.1
