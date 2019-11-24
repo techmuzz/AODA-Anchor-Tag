@@ -9,13 +9,13 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires PHP: 5.5
 
-This plugin will update hyperlinks in articles are per options set in the plugin settings page.
+This plugin helps update and/or customize hyperlinks in post content.
 
 == Description ==
 
-This plugin will update hyperlinks in articles are per options set in the plugin settings page.
+This plugin helps update and/or customize hyperlinks in post content.
 
-Please contact us at info@techmuzz.com if you find any bug or have good idea for any enhancements.
+Please contact us at info@techmuzz.com if you find any bug or have recommendations for any enhancements.
 
 == Installation ==
 
@@ -25,31 +25,18 @@ e.g.
 
 1. Upload Plugin zip file to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. After that Go to `Settings -> Custom hyperlinks` page and set options as per your requirements.
-1. Confirm the preview of updated hyperlinks in `Preview` tab.
-1. Toggle the `Apply` switch in the `Preview` tab.
+1. After that Go to `Settings -> Custom Hyperlinks` page and set options as per your requirements.
+1. Confirm the preview of updated hyperlinks in `Preview and Apply` tab.
+1. Toggle the `Apply Changes` switch in the `Preview and Apply` tab.
 1. Click on `Save Changes` button to save and apply your changes.
 
 == Frequently Asked Questions ==
 
-= Does the plugin applies the options once I toggle switch? =
+= Will the plugin apply the settings once I toggle the 'Apply Changes' switch? =
 
-The user must have to click on `Save Changes` button save and apply settings.
-
-== Screenshots ==
-
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+No. The user must click on `Save Changes` button to save and apply the settings.
 
 == Changelog ==
-
-= 1.0 =
-* All basic features developed
-
-== Upgrade Notice ==
 
 = 1.0 =
 * All basic features developed

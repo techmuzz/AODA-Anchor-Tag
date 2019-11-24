@@ -2,9 +2,6 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
-body {
-    margin: 0;
-}
 
 .custom-hl-content {
     width: 100%;
@@ -437,6 +434,7 @@ body {
     position: relative;
     border: 2px solid #e5e5e5;
     padding: 10.4px 13px;
+    margin-bottom: .75rem;
 }
 
 .inner .form-row .form-holder .input-border {

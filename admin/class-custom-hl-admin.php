@@ -99,7 +99,7 @@ class Custom_HL_Admin {
 		$settings_link = array(
 			'<a href="' . admin_url( 'options-general.php?page=' . $this->plugin_name ) . '">' . __('Settings', $this->plugin_name) . '</a>',
 		);
-		return array_merge(  $settings_link, $links );
+		return array_merge( $links, $settings_link );
 	}
 
 	/**
