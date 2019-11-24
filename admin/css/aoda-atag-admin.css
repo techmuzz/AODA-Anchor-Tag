@@ -723,3 +723,7 @@ input:checked+.slider:before {
 .submit {
     display: none;
 }
+
+textarea {
+    width: 100%;
+}
