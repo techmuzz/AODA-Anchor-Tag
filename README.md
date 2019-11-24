@@ -5,4 +5,5 @@ A WordPress plugin to append extra content to anchor tag having external link.
 - Create an empty folder for `wordpress`
 - put `docker-compose.yml` in it
 - run `docker-compose up -d`
-- copy current folder as plugin in wordpress admin area
+- copy current folder as plugin in wordpress admin area once you enable volumn for container
+- Start developing :-)
