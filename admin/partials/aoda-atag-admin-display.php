@@ -12,11 +12,13 @@
  * @subpackage Aoda_Atag/admin/partials
  */
 ?>
-
-<div class="page-content">
+<div id="ajax-saving">
+    <img src="<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'images/ajax-loader.gif'; ?>" alt="loading" id="loading" />
+</div>
+<div class="aoda-atag-content">
     <div class="form-v1-content">
         <div class="wizard-form">
-            <form class="form-register" method="post" name="aoda_atag_options" action="options.php">
+            <form class="form-register" id="aoda-atag-options" method="post" name="aoda_atag_options" action="options.php">
                 <?php
                     //Grab all options
                     $options = get_option($this->plugin_name);
@@ -31,7 +33,6 @@
                     do_settings_sections($this->plugin_name);
                 ?>
                 <input type="hidden" id="siteUrl" name="<?php echo $this->plugin_name;?>[siteUrl]" value="<?php echo parse_url(get_home_url(), PHP_URL_HOST); ?>" />
-                <?php submit_button('Save', 'primary', 'submit', TRUE, array('style' => 'display: none;')); ?>
                 <div id="form-total">
                     <!-- SECTION 1 -->
                     <h2>
@@ -84,7 +85,7 @@
                     <section>
                         <div class="inner">
                             <div class="wizard-header">
-                                <h3 class="heading">Preview</h3>
+                                <h3 class="heading">Preview & Apply</h3>
                                 <p>Note: CSS in your website can impact the output.</p>
                             </div>
                             <div class="form-row">

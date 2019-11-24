@@ -76,6 +76,7 @@ class Aoda_Atag_Admin {
 		wp_enqueue_script( 'bootstrap-min');
 		wp_register_script('jquery-steps', plugin_dir_url( __FILE__ ) . 'js/jquery.steps.js');
 		wp_enqueue_script( 'jquery-steps');
+		wp_enqueue_script( 'jquery-form' );
 	}
 
 

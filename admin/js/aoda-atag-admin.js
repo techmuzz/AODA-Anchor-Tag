@@ -2,7 +2,6 @@
 	'use strict';
 
 	$(function() {
-
 		$("#form-total").steps({
 			headerTag: "h2",
 			bodyTag: "section",
@@ -19,13 +18,29 @@
 			},
 			onFinished: function (event, currentIndex) {
 				event.preventDefault();
-				$("#submit").click();
+				$('#aoda-atag-options').submit();
 			},
 			labels: {
 				next : 'Preview',
 				finish: 'Save Changes',
 				previous: "Back"
 			},
+		});
+
+		$('#aoda-atag-options').submit(function(e) {
+			jQuery('#ajax-saving').removeAttr('class').fadeIn('fast');
+			
+			$(this).ajaxSubmit({
+			   success: function(){
+				jQuery('#ajax-saving').addClass('success-animation');
+				//jQuery('#ajax-saving').fadeOut('slow');
+				setTimeout(function(){
+					jQuery('#ajax-saving').fadeOut();
+				},500);
+			   }, 
+			   timeout: 5000
+			});
+			return false; 
 		});
 	});
 
