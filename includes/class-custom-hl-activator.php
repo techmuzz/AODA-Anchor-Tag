@@ -6,8 +6,8 @@
  * @link       https://www.techmuzz.com
  * @since      1.0.0
  *
- * @package    Aoda_Atag
- * @subpackage Aoda_Atag/includes
+ * @package    Custom_HL
+ * @subpackage Custom_HL/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
- * @package    Aoda_Atag
- * @subpackage Aoda_Atag/includes
- * @author     TechMuzz <techmuzz@gmail.com>
+ * @package    Custom_HL
+ * @subpackage Custom_HL/includes
+ * @author     TechMuzz <info@techmuzz.com>
  */
-class Aoda_Atag_Activator {
+class Custom_HL_Activator {
 
 	/**
 	 * Short Description. (use period)

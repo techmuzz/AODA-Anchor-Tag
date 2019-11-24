@@ -9,8 +9,8 @@
  * @link       https://www.techmuzz.com
  * @since      1.0.0
  *
- * @package    Aoda_Atag
- * @subpackage Aoda_Atag/includes
+ * @package    Custom_HL
+ * @subpackage Custom_HL/includes
  */
 
 /**
@@ -20,11 +20,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Aoda_Atag
- * @subpackage Aoda_Atag/includes
- * @author     TechMuzz <techmuzz@gmail.com>
+ * @package    Custom_HL
+ * @subpackage Custom_HL/includes
+ * @author     TechMuzz <info@techmuzz.com>
  */
-class Aoda_Atag_i18n {
+class Custom_HL_i18n {
 
 
 	/**
@@ -35,7 +35,7 @@ class Aoda_Atag_i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'aoda-atag',
+			'custom-hl',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

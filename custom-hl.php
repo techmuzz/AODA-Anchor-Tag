@@ -10,18 +10,18 @@
  *
  * @link              https://www.techmuzz.com
  * @since             1.0.0
- * @package           Aoda_Atag
+ * @package           Custom_Hyperlinks
  *
  * @wordpress-plugin
- * Plugin Name:       AODA Anchor Tag
- * Plugin URI:        https://github.com/techmuzz/AODA-Anchor-Tag
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Plugin Name:       Custom Hyperlinks
+ * Plugin URI:        https://github.com/techmuzz/custom-hyperlinks
+ * Description:       This plugin helps update and/or customize hyperlinks in post content.
  * Version:           1.0.0
  * Author:            TechMuzz
  * Author URI:        https://www.techmuzz.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       aoda-atag
+ * Text Domain:       custom-hl
  * Domain Path:       /languages
  */
 
@@ -35,34 +35,34 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'AODA_ATAG_VERSION', '1.0.0' );
+define( 'CUSTOM_HL_VERSION', '1.0.0' );
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-aoda-atag-activator.php
+ * This action is documented in includes/class-custom-hl-activator.php
  */
-function activate_aoda_atag() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-aoda-atag-activator.php';
-	Aoda_Atag_Activator::activate();
+function activate_custom_hl() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-custom-hl-activator.php';
+	Custom_HL_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-aoda-atag-deactivator.php
+ * This action is documented in includes/class-custom-hl-deactivator.php
  */
-function deactivate_aoda_atag() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-aoda-atag-deactivator.php';
-	Aoda_Atag_Deactivator::deactivate();
+function deactivate_custom_hl() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-custom-hl-deactivator.php';
+	Custom_HL_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_aoda_atag' );
-register_deactivation_hook( __FILE__, 'deactivate_aoda_atag' );
+register_activation_hook( __FILE__, 'activate_custom_hl' );
+register_deactivation_hook( __FILE__, 'deactivate_custom_hl' );
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-aoda-atag.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-custom-hl.php';
 
 /**
  * Begins execution of the plugin.
@@ -73,10 +73,10 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-aoda-atag.php';
  *
  * @since    1.0.0
  */
-function run_aoda_atag() {
+function run_custom_hl() {
 
-	$plugin = new Aoda_Atag();
+	$plugin = new Custom_HL();
 	$plugin->run();
 
 }
-run_aoda_atag();
+run_custom_hl();

@@ -22,7 +22,7 @@
  * @link       https://www.techmuzz.com
  * @since      1.0.0
  *
- * @package    Aoda_Atag
+ * @package    Custom_HL
  */
 
 // If uninstall not called from WordPress, then exit.
