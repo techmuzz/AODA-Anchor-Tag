@@ -102,7 +102,7 @@ class Aoda_Atag_Public {
 
 	public static function getHost($address) {
 		$parseUrl = parse_url(trim($address));
-		return str_ireplace('www.', '', trim($parseUrl['host'] ? $parseUrl['host'] : array_shift(explode('/', $parseUrl['path'], 2))));
+		return trim($parseUrl['host'] ? $parseUrl['host'] : array_shift(explode('/', $parseUrl['path'], 2)));
 	}
 
 	public static function appendHTML(DOMNode $parent, $source) {
