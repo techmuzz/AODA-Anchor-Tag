@@ -6,8 +6,8 @@
  * @link       https://www.techmuzz.com
  * @since      1.0.0
  *
- * @package    Aoda_Atag
- * @subpackage Aoda_Atag/includes
+ * @package    Custom_HL
+ * @subpackage Custom_HL/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.0.0
- * @package    Aoda_Atag
- * @subpackage Aoda_Atag/includes
+ * @package    Custom_HL
+ * @subpackage Custom_HL/includes
  * @author     TechMuzz <techmuzz@gmail.com>
  */
-class Aoda_Atag_Deactivator {
+class Custom_HL_Deactivator {
 
 	/**
 	 * Short Description. (use period)

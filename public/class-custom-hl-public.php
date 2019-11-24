@@ -6,8 +6,8 @@
  * @link       https://www.techmuzz.com
  * @since      1.0.0
  *
- * @package    Aoda_Atag
- * @subpackage Aoda_Atag/public
+ * @package    Custom_HL
+ * @subpackage Custom_HL/public
  */
 
 /**
@@ -16,11 +16,11 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  *
- * @package    Aoda_Atag
- * @subpackage Aoda_Atag/public
+ * @package    Custom_HL
+ * @subpackage Custom_HL/public
  * @author     TechMuzz <techmuzz@gmail.com>
  */
-class Aoda_Atag_Public {
+class Custom_HL_Public {
 
 	/**
 	 * The ID of this plugin.
@@ -65,15 +65,15 @@ class Aoda_Atag_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Aoda_Atag_Loader as all of the hooks are defined
+		 * defined in Custom_HL_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Aoda_Atag_Loader will then create the relationship
+		 * The Custom_HL_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/aoda-atag-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/custom-hl-public.css', array(), $this->version, 'all' );
 
 	}
 
@@ -88,15 +88,15 @@ class Aoda_Atag_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Aoda_Atag_Loader as all of the hooks are defined
+		 * defined in Custom_HL_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Aoda_Atag_Loader will then create the relationship
+		 * The Custom_HL_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/aoda-atag-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/custom-hl-public.js', array( 'jquery' ), $this->version, false );
 
 	}
 
@@ -122,7 +122,7 @@ class Aoda_Atag_Public {
 		return $parent;
 	}
 
-	public function aoda_atag_the_content( $content ) {
+	public function custom_hl_the_content( $content ) {
 		$options = get_option($this->plugin_name);
 
 		if($options['switch']) {

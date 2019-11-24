@@ -8,8 +8,8 @@
  * @link       https://www.techmuzz.com
  * @since      1.0.0
  *
- * @package    Aoda_Atag
- * @subpackage Aoda_Atag/public/partials
+ * @package    Custom_HL
+ * @subpackage Custom_HL/public/partials
  */
 ?>
 

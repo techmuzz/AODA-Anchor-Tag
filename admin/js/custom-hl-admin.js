@@ -18,7 +18,7 @@
 			},
 			onFinished: function (event, currentIndex) {
 				event.preventDefault();
-				$('#aoda-atag-options').submit();
+				$('#custom-hl-options').submit();
 			},
 			labels: {
 				next : 'Preview',
@@ -27,12 +27,12 @@
 			},
 		});
 
-		$('#aoda-atag-exampleText').keyup(function(e) {
+		$('#custom-hl-exampleText').keyup(function(e) {
 			e.preventDefault();
 			applyRegex();
 		});
 
-		$('#aoda-atag-options').submit(function(e) {
+		$('#custom-hl-options').submit(function(e) {
 			jQuery('#ajax-saving').removeAttr('class').fadeIn('fast');
 			
 			$(this).ajaxSubmit({
@@ -51,18 +51,18 @@
 
 	function applyRegex() {
 		//reset the output text element
-		$('#outputText').html($('#aoda-atag-exampleText').val());
+		$('#outputText').html($('#custom-hl-exampleText').val());
 
-		var domains = $('#aoda-atag-domains').val().split(/\n/);
+		var domains = $('#custom-hl-domains').val().split(/\n/);
 		domains.map(domain => domain.trim());
 		domains = domains.filter(domain => domain.length > 0);
 
 		$('#outputText').find('a').each(function (index, anchorTag) {
 			if(domains.indexOf(anchorTag.hostname) == -1) {
-				if($('#aoda-atag-target').val() != -1) {
-					anchorTag.target = $('#aoda-atag-target').val();
+				if($('#custom-hl-target').val() != -1) {
+					anchorTag.target = $('#custom-hl-target').val();
 				}
-				anchorTag.innerHTML = anchorTag.innerHTML + $('#aoda-atag-element').val();
+				anchorTag.innerHTML = anchorTag.innerHTML + $('#custom-hl-element').val();
 			}
 		});
 	}

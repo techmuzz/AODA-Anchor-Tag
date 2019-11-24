@@ -6,8 +6,8 @@
  * @link       https://www.techmuzz.com
  * @since      1.0.0
  *
- * @package    Aoda_Atag
- * @subpackage Aoda_Atag/includes
+ * @package    Custom_HL
+ * @subpackage Custom_HL/includes
  */
 
 /**
@@ -17,11 +17,11 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Aoda_Atag
- * @subpackage Aoda_Atag/includes
+ * @package    Custom_HL
+ * @subpackage Custom_HL/includes
  * @author     TechMuzz <techmuzz@gmail.com>
  */
-class Aoda_Atag_Loader {
+class Custom_HL_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

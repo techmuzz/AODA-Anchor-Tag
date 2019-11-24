@@ -6,8 +6,8 @@
  * @link       https://www.techmuzz.com
  * @since      1.0.0
  *
- * @package    Aoda_Atag
- * @subpackage Aoda_Atag/admin
+ * @package    Custom_HL
+ * @subpackage Custom_HL/admin
  */
 
 /**
@@ -16,11 +16,11 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
- * @package    Aoda_Atag
- * @subpackage Aoda_Atag/admin
+ * @package    Custom_HL
+ * @subpackage Custom_HL/admin
  * @author     TechMuzz <techmuzz@gmail.com>
  */
-class Aoda_Atag_Admin {
+class Custom_HL_Admin {
 
 	/**
 	 * The ID of this plugin.
@@ -60,7 +60,7 @@ class Aoda_Atag_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/aoda-atag-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/custom-hl-admin.css', array(), $this->version, 'all' );
 		wp_register_style( 'bootstrap-min',  plugin_dir_url( __FILE__ ) .'/css/bootstrap.min.css', array(), null, 'all' );
 		wp_enqueue_style( 'bootstrap-min' );
 	}
@@ -71,7 +71,7 @@ class Aoda_Atag_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/aoda-atag-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/custom-hl-admin.js', array( 'jquery' ), $this->version, false );
 		wp_register_script('bootstrap-min', plugin_dir_url( __FILE__ ) . 'js/bootstrap.min.js');
 		wp_enqueue_script( 'bootstrap-min');
 		wp_register_script('jquery-steps', plugin_dir_url( __FILE__ ) . 'js/jquery.steps.js');
@@ -87,7 +87,7 @@ class Aoda_Atag_Admin {
 	 */
 
 	public function add_plugin_admin_menu() {
-		add_options_page( 'AODA Anchor Tag', 'AODA Anchor Tag', 'manage_options', $this->plugin_name, array($this, 'display_plugin_setup_page'));
+		add_options_page( 'Custom Hyperlinks', 'Custom Hyperlinks', 'manage_options', $this->plugin_name, array($this, 'display_plugin_setup_page'));
 	}
 
 	/**
@@ -108,7 +108,7 @@ class Aoda_Atag_Admin {
 	 * @since    1.0.0
 	 */
 	public function display_plugin_setup_page() {
-		include_once( 'partials/aoda-atag-admin-display.php' );
+		include_once( 'partials/custom-hl-admin-display.php' );
 	}
 
 	public function validate($input) {    

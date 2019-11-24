@@ -8,17 +8,17 @@
  * @link       https://www.techmuzz.com
  * @since      1.0.0
  *
- * @package    Aoda_Atag
- * @subpackage Aoda_Atag/admin/partials
+ * @package    Custom_HL
+ * @subpackage Custom_HL/admin/partials
  */
 ?>
 <div id="ajax-saving">
     <img src="<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'images/ajax-loader.gif'; ?>" alt="loading" id="loading" />
 </div>
-<div class="aoda-atag-content">
+<div class="custom-hl-content">
     <div class="form-v1-content">
         <div class="wizard-form">
-            <form class="form-register" id="aoda-atag-options" method="post" name="aoda_atag_options" action="options.php">
+            <form class="form-register" id="custom-hl-options" method="post" name="custom_hl_options" action="options.php">
                 <?php
                     //Grab all options
                     $options = get_option($this->plugin_name);

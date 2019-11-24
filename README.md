@@ -1,4 +1,4 @@
-# AODA-Anchor-Tag
+# Custom Hyperlinks
 A WordPress plugin to append extra content to anchor tag having external link.
 
 # Dev Setup

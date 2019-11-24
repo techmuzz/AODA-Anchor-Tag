@@ -9,8 +9,8 @@
  * @link       https://www.techmuzz.com
  * @since      1.0.0
  *
- * @package    Aoda_Atag
- * @subpackage Aoda_Atag/includes
+ * @package    Custom_HL
+ * @subpackage Custom_HL/includes
  */
 
 /**
@@ -23,11 +23,11 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Aoda_Atag
- * @subpackage Aoda_Atag/includes
+ * @package    Custom_HL
+ * @subpackage Custom_HL/includes
  * @author     TechMuzz <techmuzz@gmail.com>
  */
-class Aoda_Atag {
+class Custom_HL {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -35,7 +35,7 @@ class Aoda_Atag {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Aoda_Atag_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Custom_HL_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -67,12 +67,12 @@ class Aoda_Atag {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'AODA_ATAG_VERSION' ) ) {
-			$this->version = AODA_ATAG_VERSION;
+		if ( defined( 'CUSTOM_HL_VERSION' ) ) {
+			$this->version = CUSTOM_HL_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->plugin_name = 'aoda-atag';
+		$this->plugin_name = 'custom-hl';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -86,10 +86,10 @@ class Aoda_Atag {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Aoda_Atag_Loader. Orchestrates the hooks of the plugin.
-	 * - Aoda_Atag_i18n. Defines internationalization functionality.
-	 * - Aoda_Atag_Admin. Defines all hooks for the admin area.
-	 * - Aoda_Atag_Public. Defines all hooks for the public side of the site.
+	 * - Custom_HL_Loader. Orchestrates the hooks of the plugin.
+	 * - Custom_HL_i18n. Defines internationalization functionality.
+	 * - Custom_HL_Admin. Defines all hooks for the admin area.
+	 * - Custom_HL_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -103,33 +103,33 @@ class Aoda_Atag {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-aoda-atag-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-custom-hl-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-aoda-atag-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-custom-hl-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-aoda-atag-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-custom-hl-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-aoda-atag-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-custom-hl-public.php';
 
-		$this->loader = new Aoda_Atag_Loader();
+		$this->loader = new Custom_HL_Loader();
 
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Aoda_Atag_i18n class in order to set the domain and to register the hook
+	 * Uses the Custom_HL_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -137,7 +137,7 @@ class Aoda_Atag {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Aoda_Atag_i18n();
+		$plugin_i18n = new Custom_HL_i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -152,7 +152,7 @@ class Aoda_Atag {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Aoda_Atag_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Custom_HL_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -178,11 +178,11 @@ class Aoda_Atag {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Aoda_Atag_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Custom_HL_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-		$this->loader->add_filter( 'the_content', $plugin_public, 'aoda_atag_the_content' );
+		$this->loader->add_filter( 'the_content', $plugin_public, 'custom_hl_the_content' );
 
 	}
 
@@ -210,7 +210,7 @@ class Aoda_Atag {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Aoda_Atag_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Custom_HL_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;
