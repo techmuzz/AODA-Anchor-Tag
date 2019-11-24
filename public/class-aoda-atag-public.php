@@ -107,11 +107,18 @@ class Aoda_Atag_Public {
 
 	public static function appendHTML(DOMNode $parent, $source) {
 		$tmpDoc = new DOMDocument();
-		$tmpDoc->loadHTML($source);
-		foreach ($tmpDoc->getElementsByTagName('body')->item(0)->childNodes as $node) {
-			$node = $parent->ownerDocument->importNode($node, true);
+		
+		if($source != strip_tags($source)) {
+			$tmpDoc->loadHTML($source);
+			foreach ($tmpDoc->getElementsByTagName('body')->item(0)->childNodes as $node) {
+				$node = $parent->ownerDocument->importNode($node, true);
+				$parent->appendChild($node);
+			}
+		} else {
+			$node = $parent->ownerDocument->importNode($tmpDoc->createTextNode($source));
 			$parent->appendChild($node);
 		}
+		
 		return $parent;
 	}
 
