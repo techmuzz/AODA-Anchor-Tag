@@ -1,33 +1,62 @@
 (function( $ ) {
 	'use strict';
 
-	$(function(){
-		$('#outputText').html(applyRegex());
+	$(function() {
 
-		$('#refreshExampleButton').on('click', function(e){
-			e.preventDefault();
-			$('#outputText').html(applyRegex());
-		});
-		
-		$('#aoda-atag-element').keyup(function() {			
-			$('#outputText').html(applyRegex());
+		$("#form-total").steps({
+			headerTag: "h2",
+			bodyTag: "section",
+			transitionEffect: "fade",
+			enableAllSteps: true,
+			stepsOrientation: "vertical",
+			autoFocus: true,
+			transitionEffectSpeed: 500,
+			titleTemplate : '<div class="title">#title#</div>',
+			onStepChanged: function (event, current, next) {
+				if (current == $('section').length - 1) {
+					applyRegex();
+				}
+			},
+			onFinished: function (event, currentIndex) {
+				event.preventDefault();
+				$("#submit").click();
+			},
+			labels: {
+				next : 'Next',
+				finish: 'Save',
+				previous: "Back"
+			},
 		});
 	});
 
 	function applyRegex() {
-		var siteUrl = $('#siteUrl').val();
+		//reset the output text element
+		$('#outputText').html($('#exampleText').html());
 
+		var siteUrl = $('#siteUrl').val();
 		var domains = $('#aoda-atag-domains').val().split(/\n/);
-		domains.map(domain => domain.trim());
+		domains.map(domain => getHost);
 		domains = domains.filter(domain => domain.length > 0);
 		domains.push(siteUrl);
-		domains = domains.join("|");
+		$('#outputText').find('a').each(function (index, anchorTag) {
+			var host = getHost(anchorTag.hostname);
+			if(domains.indexOf(host) == -1) {
+				if($('#aoda-atag-target').val() != -1) {
+					anchorTag.target = $('#aoda-atag-target').val();
+				}
+				anchorTag.innerHTML = anchorTag.innerHTML + $('#aoda-atag-element').val();
+			}
+		});
+	}
 
-		var regex = new RegExp(`<a(.+?(?=href))href="((http|https):\\/\\/(?!(${domains}))[\\w\\.\\/\\-=?#]+)"(.*?)>(.*?)<\\/a>`, 'gi');
-		var appendElement = $('#aoda-atag-element').val();
-		var replaceAnchor = `<a$1href='$2'$5>$6 ${appendElement}</a>`;
-
-		return $('#exampleText').html().replace(regex, replaceAnchor);
+	function getHost(address) {
+		var a = document.createElement('a');
+		a.href = address;
+		var hostname = a.hostname;
+		if(address != "localhost" && hostname == "localhost") {
+			return address;
+		}
+		return hostname;
 	}
 
 })( jQuery );
