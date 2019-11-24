@@ -118,6 +118,7 @@ class Aoda_Atag_Admin {
 		$valid['domains'] = esc_textarea($input['domains']);
 		$valid['element'] = esc_textarea($input['element']);
 		$valid['target'] = sanitize_text_field($input['target']);
+		$valid['exampleText'] = sanitize_text_field($input['exampleText']);
 	
 		return $valid;
 	 }

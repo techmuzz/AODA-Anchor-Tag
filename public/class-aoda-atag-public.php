@@ -129,7 +129,6 @@ class Aoda_Atag_Public {
 			$domains = explode("\n", $options['domains']);
 			$domains = array_filter($domains); //will filter empty values
 			$domains = array_map("self::getHost", $domains);
-			$domains[] = self::getHost(get_home_url());
 
 			if(!empty($domains)) {
 				$element = html_entity_decode($options['element']);

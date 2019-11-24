@@ -27,12 +27,12 @@
                     $domains = $options['domains'];
                     $element = $options['element'];
                     $target = $options['target'];
+                    $exampleText = $options['exampleText'];
                 ?>
                 <?php
                     settings_fields($this->plugin_name);
                     do_settings_sections($this->plugin_name);
                 ?>
-                <input type="hidden" id="siteUrl" name="<?php echo $this->plugin_name;?>[siteUrl]" value="<?php echo parse_url(get_home_url(), PHP_URL_HOST); ?>" />
                 <div id="form-total">
                     <!-- SECTION 1 -->
                     <h2>
@@ -63,8 +63,7 @@
                                 <div class="form-holder form-holder-2">
                                     <fieldset>
                                         <legend>Exclude Domains</legend>
-                                        <label>Note: All internal links are excluded by default</label>
-                                        <textarea id="<?php echo $this->plugin_name; ?>-domains" name="<?php echo $this->plugin_name; ?>[domains]" placeholder="Give domains to exclude as seperate line. Current site's domain is already included (<?php echo parse_url(get_home_url(), PHP_URL_HOST); ?>)"><?php if(!empty($domains)) echo $domains; ?></textarea>
+                                        <textarea id="<?php echo $this->plugin_name; ?>-domains" rows="5" name="<?php echo $this->plugin_name; ?>[domains]" placeholder="Provide domains to exclude as seperate line like www.domain.com"><?php if(!empty($domains)) echo $domains; ?></textarea>
                                     </fieldset>
                                 </div>
                             </div>
@@ -92,7 +91,7 @@
                                 <div class="form-holder form-holder-2">
                                     <fieldset>
                                         <legend>Example Text</legend>
-                                        <p id="exampleText">This is the best <a href="https://www.google.com" target="_blank">website</a> in this world.</p>
+                                        <textarea id="<?php echo $this->plugin_name; ?>-exampleText" rows="3" name="<?php echo $this->plugin_name; ?>[exampleText]" ><?php echo (!is_null($exampleText) && !empty($exampleText)) ? $exampleText : 'This is the best <a href="https://www.domain.com" target="_blank">website</a> in this world.'; ?></textarea>
                                     </fieldset>
                                 </div>
                             </div>

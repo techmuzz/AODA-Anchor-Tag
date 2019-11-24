@@ -27,6 +27,11 @@
 			},
 		});
 
+		$('#aoda-atag-exampleText').keyup(function(e) {
+			e.preventDefault();
+			applyRegex();
+		});
+
 		$('#aoda-atag-options').submit(function(e) {
 			jQuery('#ajax-saving').removeAttr('class').fadeIn('fast');
 			
@@ -46,16 +51,14 @@
 
 	function applyRegex() {
 		//reset the output text element
-		$('#outputText').html($('#exampleText').html());
+		$('#outputText').html($('#aoda-atag-exampleText').val());
 
-		var siteUrl = $('#siteUrl').val();
 		var domains = $('#aoda-atag-domains').val().split(/\n/);
-		domains.map(domain => getHost);
+		domains.map(domain => domain.trim());
 		domains = domains.filter(domain => domain.length > 0);
-		domains.push(siteUrl);
+
 		$('#outputText').find('a').each(function (index, anchorTag) {
-			var host = getHost(anchorTag.hostname);
-			if(domains.indexOf(host) == -1) {
+			if(domains.indexOf(anchorTag.hostname) == -1) {
 				if($('#aoda-atag-target').val() != -1) {
 					anchorTag.target = $('#aoda-atag-target').val();
 				}
@@ -63,15 +66,4 @@
 			}
 		});
 	}
-
-	function getHost(address) {
-		var a = document.createElement('a');
-		a.href = address;
-		var hostname = a.hostname;
-		if(address != "localhost" && hostname == "localhost") {
-			return address;
-		}
-		return hostname;
-	}
-
 })( jQuery );
