@@ -60,9 +60,11 @@ class Custom_HL_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/custom-hl-admin.css', array(), $this->version, 'all' );
-		wp_register_style( 'bootstrap-min',  plugin_dir_url( __FILE__ ) .'/css/bootstrap.min.css', array(), null, 'all' );
-		wp_enqueue_style( 'bootstrap-min' );
+		if(get_current_screen()->id == "settings_page_custom-hl") {
+			wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/custom-hl-admin.css', array(), $this->version, 'all' );
+			wp_register_style( 'bootstrap-min',  plugin_dir_url( __FILE__ ) .'/css/bootstrap.min.css', array(), null, 'all' );
+			wp_enqueue_style( 'bootstrap-min' );
+		}
 	}
 
 	/**
@@ -71,12 +73,12 @@ class Custom_HL_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/custom-hl-admin.js', array( 'jquery' ), $this->version, false );
-		wp_register_script('bootstrap-min', plugin_dir_url( __FILE__ ) . 'js/bootstrap.min.js');
-		wp_enqueue_script( 'bootstrap-min');
-		wp_register_script('jquery-steps', plugin_dir_url( __FILE__ ) . 'js/jquery.steps.js');
-		wp_enqueue_script( 'jquery-steps');
-		wp_enqueue_script( 'jquery-form' );
+		if(get_current_screen()->id == "settings_page_custom-hl") {
+			wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/custom-hl-admin.js', array( 'jquery' ), $this->version, false );
+			wp_register_script('jquery-steps', plugin_dir_url( __FILE__ ) . 'js/jquery.steps.js');
+			wp_enqueue_script( 'jquery-steps');
+			wp_enqueue_script( 'jquery-form' );
+		}
 	}
 
 
@@ -118,7 +120,7 @@ class Custom_HL_Admin {
 		$valid['domains'] = esc_textarea($input['domains']);
 		$valid['element'] = esc_textarea($input['element']);
 		$valid['target'] = sanitize_text_field($input['target']);
-		$valid['exampleText'] = sanitize_text_field($input['exampleText']);
+		$valid['exampleText'] = esc_textarea($input['exampleText']);
 	
 		return $valid;
 	 }

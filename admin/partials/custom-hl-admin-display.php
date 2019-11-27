@@ -12,7 +12,7 @@
  * @subpackage Custom_HL/admin/partials
  */
 ?>
-<div id="ajax-saving">
+<div id="custom-hl-ajax-saving">
     <img src="<?php echo plugin_dir_url( dirname( __FILE__ ) ) . 'images/ajax-loader.gif'; ?>" alt="loading" id="loading" />
 </div>
 <div class="custom-hl-content">

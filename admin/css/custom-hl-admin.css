@@ -720,7 +720,7 @@ textarea {
     width: 100%;
 }
 
-#ajax-saving {
+#custom-hl-ajax-saving {
     display: none;
     box-shadow: rgba(0, 139, 219, 0.247059) 0px 0px 60px;
     position: fixed;
@@ -735,14 +735,14 @@ textarea {
     animation: bounceIn 1s;
 }
 
-#ajax-saving.success-animation {
+#custom-hl-ajax-saving.success-animation {
 	background-color: rgb(169, 233, 0);
 	box-shadow: rgba(0, 0, 0, 0) 0px 0px 40px;
 	opacity: 1;
 	animation: bounceIn 1s;
 }
 
-#ajax-saving.success-animation:before {
+#custom-hl-ajax-saving.success-animation:before {
 	background: none;
 	font-weight: bold;
 	font-variant: normal;
@@ -756,15 +756,15 @@ textarea {
 	line-height: 50px;
 }
 
-#ajax-saving.et_loading:before {
+#custom-hl-ajax-saving.loading:before {
 	display: none;
 }
 
-#ajax-saving.success-animation img {
+#custom-hl-ajax-saving.success-animation img {
 	display: none;
 }
 
-#ajax-saving img {
+#custom-hl-ajax-saving img {
     margin: 9px;
 }
 

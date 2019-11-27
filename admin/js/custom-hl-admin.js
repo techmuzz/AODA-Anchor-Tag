@@ -33,14 +33,13 @@
 		});
 
 		$('#custom-hl-options').submit(function(e) {
-			jQuery('#ajax-saving').removeAttr('class').fadeIn('fast');
+			jQuery('#custom-hl-ajax-saving').removeAttr('class').fadeIn('fast');
 			
 			$(this).ajaxSubmit({
 			   success: function(){
-				jQuery('#ajax-saving').addClass('success-animation');
-				//jQuery('#ajax-saving').fadeOut('slow');
+				jQuery('#custom-hl-ajax-saving').addClass('success-animation');
 				setTimeout(function(){
-					jQuery('#ajax-saving').fadeOut();
+					jQuery('#custom-hl-ajax-saving').fadeOut();
 				},500);
 			   }, 
 			   timeout: 5000
@@ -58,7 +57,7 @@
 		domains = domains.filter(domain => domain.length > 0);
 
 		$('#outputText').find('a').each(function (index, anchorTag) {
-			if(domains.indexOf(anchorTag.hostname) == -1) {
+			if(anchorTag.hostname && domains.indexOf(anchorTag.hostname) == -1) {
 				if($('#custom-hl-target').val() != -1) {
 					anchorTag.target = $('#custom-hl-target').val();
 				}

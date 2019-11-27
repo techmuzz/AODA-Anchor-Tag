@@ -16,7 +16,7 @@
  * Plugin Name:       Custom Hyperlinks
  * Plugin URI:        https://github.com/techmuzz/custom-hyperlinks
  * Description:       This plugin helps update and/or customize hyperlinks in post content.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            TechMuzz
  * Author URI:        https://www.techmuzz.com
  * License:           GPL-2.0+
